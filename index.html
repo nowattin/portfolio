@@ -68,7 +68,7 @@
 
   /* HOME */
   .hero-subtitle { color: var(--text-muted); font-size: 1.05rem; max-width: 500px; margin-bottom: 2rem; }
-  .btn-primary { display: inline-block; background: var(--accent); color: #fff; font-size: 14px; font-weight: 500; padding: 0.65rem 1.4rem; border-radius: 6px; text-decoration: none; margin-right: 0.75rem; transition: background .2s; }
+  .btn-primary { display: inline-block; background: var(--accent); color: #fff; font-size: 14px; font-weight: 500; padding: 0.65rem 1.4rem; border-radius: 6px; text-decoration: none; margin-right: 0.75rem; transition: background .2s; cursor: pointer; border: none; font-family: var(--font); }
   .btn-primary:hover { background: var(--accent-light); }
   .btn-outline { display: inline-block; background: transparent; color: var(--text); font-size: 14px; font-weight: 500; padding: 0.65rem 1.4rem; border-radius: 6px; text-decoration: none; border: 1px solid var(--border); transition: border-color .2s; }
   .btn-outline:hover { border-color: rgba(255,255,255,0.25); }
@@ -94,6 +94,20 @@
   .tags { display: flex; flex-wrap: wrap; gap: 5px; }
   .tag { background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text-muted); font-size: 11px; padding: 2px 9px; border-radius: 4px; }
 
+  /* PROJETS */
+  .project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.6rem; margin-bottom: 1.25rem; transition: border-color .2s; }
+  .project-card:hover { border-color: rgba(59,130,246,0.35); }
+  .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
+  .project-year { font-family: var(--mono); font-size: 11px; color: var(--accent-light); background: rgba(37,99,235,0.12); border: 1px solid rgba(59,130,246,0.25); padding: 2px 10px; border-radius: 4px; white-space: nowrap; margin-left: 1rem; }
+  .project-card .project-type { color: var(--accent-light); font-size: 14px; font-weight: 400; }
+  .project-desc { font-size: 14px; color: var(--text-muted); margin: 0.75rem 0; line-height: 1.7; }
+  .project-details h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.5rem; font-family: var(--mono); }
+  .detail-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+  .detail-list li { font-size: 14px; color: var(--text-muted); display: flex; gap: 0.6rem; align-items: flex-start; }
+  .detail-list li::before { content: '→'; color: var(--accent-light); font-family: var(--mono); font-size: 12px; margin-top: 3px; flex-shrink: 0; }
+  .project-group { font-family: var(--mono); font-size: 11px; color: var(--text-muted); margin-top: 0.75rem; }
+  .project-group span { color: var(--accent-light); }
+
   /* STAGES */
   .stage-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.6rem; margin-bottom: 1.25rem; transition: border-color .2s; }
   .stage-card:hover { border-color: rgba(59,130,246,0.35); }
@@ -106,7 +120,18 @@
   .mission-list li { font-size: 14px; color: var(--text-muted); display: flex; gap: 0.6rem; align-items: flex-start; }
   .mission-list li::before { content: '→'; color: var(--accent-light); font-family: var(--mono); font-size: 12px; margin-top: 3px; flex-shrink: 0; }
 
+  /* VEILLE */
+  .veille-placeholder { background: var(--card-bg); border: 1px dashed rgba(59,130,246,0.3); border-radius: 10px; padding: 3rem 2rem; text-align: center; color: var(--text-muted); }
+  .veille-placeholder .veille-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .veille-placeholder p { font-size: 14px; max-width: 380px; margin: 0 auto; line-height: 1.7; }
+  .veille-placeholder .veille-label { font-family: var(--mono); font-size: 11px; color: var(--accent-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; }
+
   /* CONTACT */
+  .contact-info { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2.5rem; }
+  .contact-item { display: flex; align-items: center; gap: 0.85rem; font-size: 14px; color: var(--text-muted); }
+  .contact-item a { color: var(--text-muted); text-decoration: none; transition: color .15s; }
+  .contact-item a:hover { color: var(--accent-light); }
+  .contact-icon { width: 32px; height: 32px; background: rgba(37,99,235,0.12); border: 1px solid rgba(59,130,246,0.25); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
   .contact-intro { color: var(--text-muted); max-width: 460px; margin-bottom: 2rem; }
   .contact-form { display: flex; flex-direction: column; gap: 1rem; max-width: 500px; }
   .contact-form input, .contact-form textarea { background: var(--card-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-family: var(--font); font-size: 14px; padding: 0.75rem 1rem; outline: none; transition: border-color .2s; resize: vertical; }
@@ -115,6 +140,7 @@
   .contact-form textarea { min-height: 130px; }
   .contact-form button { align-self: flex-start; background: var(--accent); color: #fff; border: none; border-radius: 6px; font-family: var(--font); font-size: 14px; font-weight: 500; padding: 0.65rem 1.4rem; cursor: pointer; transition: background .2s; }
   .contact-form button:hover { background: var(--accent-light); }
+  .contact-divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
 
   /* FOOTER */
   footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 12px; border-top: 1px solid var(--border); font-family: var(--mono); margin-top: 2rem; }
@@ -131,7 +157,9 @@
     <li><a href="#" class="active" onclick="showPage('home',this);return false;">🏠 Accueil</a></li>
     <li><a href="#" onclick="showPage('about',this);return false;">👤 À propos</a></li>
     <li><a href="#" onclick="showPage('skills',this);return false;">🛠 Compétences</a></li>
+    <li><a href="#" onclick="showPage('projets',this);return false;">📁 Projets</a></li>
     <li><a href="#" onclick="showPage('stages',this);return false;">💼 Stages</a></li>
+    <li><a href="#" onclick="showPage('veille',this);return false;">🔍 Veille</a></li>
     <li><a href="#" onclick="showPage('contact',this);return false;">✉️ Contact</a></li>
   </ul>
 </nav>
@@ -143,11 +171,10 @@
     <div class="section-label">Portfolio</div>
     <h1>Wattin <span class="highlight">Nolan</span></h1>
     <p class="hero-subtitle">Étudiant en BTS SIO option SISR, passionné par les infrastructures réseau, la cybersécurité et les systèmes Linux.</p>
-    <a href="cv.pdf" class="btn-primary" download>Télécharger le CV</a>
-    <a href="#" class="btn-outline" onclick="showPage('contact', document.querySelectorAll('.nav-links a')[4]);return false;">Me contacter</a>
+    <button class="btn-primary" onclick="showPage('about', document.querySelectorAll('.nav-links a')[1])">À propos de moi</button>
     <div class="home-stats">
       <div class="stat"><div class="val">2</div><div class="lbl">Stages réalisés</div></div>
-      <div class="stat"><div class="val">3</div><div class="lbl">Ans de formation IT</div></div>
+      <div class="stat"><div class="val">2</div><div class="lbl">Ans de formation IT</div></div>
       <div class="stat"><div class="val">SISR</div><div class="lbl">Option BTS SIO</div></div>
     </div>
   </div>
@@ -237,9 +264,90 @@
     </div>
   </div>
 
+  <!-- PROJETS -->
+  <div class="page" id="page-projets">
+    <div class="section-label">03 — Projets</div>
+    <h2>Projets réalisés</h2>
+
+    <!-- Projet 1 : Learning Tree -->
+    <div class="project-card">
+      <div class="project-header">
+        <div>
+          <h3>Learning Tree</h3>
+          <div class="project-type">1re année — Devis d'infrastructure réseau</div>
+        </div>
+        <span class="project-year">1re année · 2024</span>
+      </div>
+      <p class="project-desc">Réalisation d'un devis complet pour une infrastructure réseau incluant le choix et le dimensionnement des équipements. L'objectif était de répondre à un cahier des charges client en proposant une solution réseau adaptée, chiffrée et documentée.</p>
+      <div class="project-details">
+        <h4>Points clés</h4>
+        <ul class="detail-list">
+          <li>Analyse du besoin client et rédaction d'un cahier des charges</li>
+          <li>Sélection et dimensionnement des équipements réseau (switches, routeurs, pare-feu)</li>
+          <li>Élaboration du devis avec justification des choix techniques</li>
+          <li>Schéma de la topologie réseau proposée</li>
+        </ul>
+      </div>
+      <div class="tags" style="margin-top:1rem;">
+        <span class="tag">Réseau</span><span class="tag">Devis</span><span class="tag">Infrastructure</span><span class="tag">Équipements</span>
+      </div>
+    </div>
+
+    <!-- Projet 2 : BEG -->
+    <div class="project-card">
+      <div class="project-header">
+        <div>
+          <h3>Projet BEG</h3>
+          <div class="project-type">1re année — Environnement Windows Server</div>
+        </div>
+        <span class="project-year">1re année · 2024</span>
+      </div>
+      <p class="project-desc">Déploiement et configuration d'un environnement Windows Server complet avec mise en place des services Active Directory Domain Services (AD DS) et d'un serveur de fichiers. Projet réalisé en 1re année permettant de maîtriser l'administration système Windows en entreprise.</p>
+      <div class="project-details">
+        <h4>Points clés</h4>
+        <ul class="detail-list">
+          <li>Installation et configuration d'un contrôleur de domaine Active Directory (AD DS)</li>
+          <li>Gestion des utilisateurs, groupes et unités organisationnelles</li>
+          <li>Mise en place de stratégies de groupe (GPO) pour la sécurité et la configuration des postes</li>
+          <li>Configuration d'un serveur de fichiers avec gestion des droits et des partages réseau</li>
+        </ul>
+      </div>
+      <div class="tags" style="margin-top:1rem;">
+        <span class="tag">Windows Server</span><span class="tag">AD DS</span><span class="tag">GPO</span><span class="tag">Serveur de fichiers</span>
+      </div>
+    </div>
+
+    <!-- Projet 3 : IUTO -->
+    <div class="project-card">
+      <div class="project-header">
+        <div>
+          <h3>Projet IUTO</h3>
+          <div class="project-type">2e année — Infrastructure complète pour IUT</div>
+        </div>
+        <span class="project-year">2e année · 2026</span>
+      </div>
+      <p class="project-desc">Projet de grande envergure réalisé en groupe de 3, consistant à concevoir et déployer une infrastructure réseau et système complète pour un IUT. Ce projet de fin de formation a mobilisé l'ensemble des compétences acquises durant les deux années de BTS SIO SISR.</p>
+      <div class="project-details">
+        <h4>Points clés</h4>
+        <ul class="detail-list">
+          <li>Conception de l'architecture réseau complète (VLAN, routage inter-VLAN, redondance)</li>
+          <li>Déploiement des services d'infrastructure : AD DS, DNS, DHCP, serveur de fichiers</li>
+          <li>Mise en place de la sécurité réseau : pare-feu, VPN, politique de sécurité</li>
+          <li>Supervision de l'infrastructure avec monitoring des équipements et alertes</li>
+          <li>Documentation technique complète et présentation au jury</li>
+        </ul>
+      </div>
+      <div class="project-group">Projet réalisé en groupe de <span>3 étudiants</span></div>
+      <div class="tags" style="margin-top:1rem;">
+        <span class="tag">Infrastructure</span><span class="tag">Réseau</span><span class="tag">Windows Server</span>
+        <span class="tag">Sécurité</span><span class="tag">Supervision</span><span class="tag">Travail en équipe</span>
+      </div>
+    </div>
+  </div>
+
   <!-- STAGES -->
   <div class="page" id="page-stages">
-    <div class="section-label">03 — Expériences</div>
+    <div class="section-label">04 — Expériences</div>
     <h2>Stages professionnels</h2>
     <div class="stage-card">
       <div class="stage-header">
@@ -284,11 +392,42 @@
     </div>
   </div>
 
+  <!-- VEILLE INFORMATIQUE -->
+  <div class="page" id="page-veille">
+    <div class="section-label">05 — Veille informatique</div>
+    <h2>Veille technologique</h2>
+    <p class="about-intro">Cette section présente ma veille informatique, permettant de rester à jour sur les évolutions technologiques du domaine des réseaux, systèmes et cybersécurité.</p>
+    <div class="veille-placeholder">
+      <div class="veille-icon">📡</div>
+      <div class="veille-label">En cours de construction</div>
+      <p>Le sujet de veille informatique est en cours de définition. Cette section sera complétée prochainement avec les sources, thématiques et analyses retenues.</p>
+    </div>
+  </div>
+
   <!-- CONTACT -->
   <div class="page" id="page-contact">
-    <div class="section-label">04 — Contact</div>
-    <h2>Me contacter</h2>
-    <p class="contact-intro">Une opportunité, un projet ou une question ? N'hésitez pas à m'écrire.</p>
+    <div class="section-label">06 — Contact</div>
+    <h2>Contact</h2>
+    <p class="contact-intro">Une opportunité, un projet ou une question ? N'hésitez pas à me contacter directement.</p>
+
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">📧</div>
+        <a href="mailto:nolan.wattin@gmail.com">nolan.wattin@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <a href="tel:+33769065526">07 69 06 55 26</a>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🔗</div>
+        <a href="https://www.linkedin.com/in/wattin-nolan" target="_blank" rel="noopener">Wattin Nolan — LinkedIn</a>
+      </div>
+    </div>
+
+    <hr class="contact-divider">
+
+    <h3 style="margin-bottom:1rem; font-size:1rem; font-weight:500; color:var(--text-muted);">Ou envoyez-moi un message</h3>
     <form class="contact-form" onsubmit="handleSubmit(event)">
       <input type="text" placeholder="Votre nom" required>
       <input type="email" placeholder="Votre e-mail" required>
