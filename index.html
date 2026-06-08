@@ -58,6 +58,7 @@
   /* MAIN */
   main { padding-top: 64px; }
   .page { display: none; padding: 4rem 3rem; max-width: 860px; margin: 0 auto; }
+  #page-projets { max-width: 1100px; }
   .page.active { display: block; }
 
   .section-label { font-family: var(--mono); font-size: 11px; color: var(--accent-light); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.6rem; }
@@ -87,7 +88,7 @@
   .tl-item p { color: var(--text-muted); font-size: 14px; margin-top: 0.3rem; }
 
   /* COMPÉTENCES */
-  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
   .skill-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.4rem; }
   .skill-card h3 { font-family: var(--mono); font-size: 12px; color: var(--accent-light); margin-bottom: 0.6rem; text-transform: uppercase; letter-spacing: 0.06em; }
   .skill-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 0.75rem; line-height: 1.5; }
@@ -95,17 +96,21 @@
   .tag { background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text-muted); font-size: 11px; padding: 2px 9px; border-radius: 4px; }
 
   /* PROJETS */
-  .project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.6rem; margin-bottom: 1.25rem; transition: border-color .2s; }
+  .projects-grid { display: flex; flex-direction: column; gap: 1rem; }
+  .project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.4rem 1.8rem; transition: border-color .2s; display: grid; grid-template-columns: 200px 1fr 1fr 1fr; gap: 1.5rem; align-items: start; }
   .project-card:hover { border-color: rgba(59,130,246,0.35); }
-  .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
-  .project-year { font-family: var(--mono); font-size: 11px; color: var(--accent-light); background: rgba(37,99,235,0.12); border: 1px solid rgba(59,130,246,0.25); padding: 2px 10px; border-radius: 4px; white-space: nowrap; margin-left: 1rem; }
-  .project-card .project-type { color: var(--accent-light); font-size: 14px; font-weight: 400; }
-  .project-desc { font-size: 14px; color: var(--text-muted); margin: 0.75rem 0; line-height: 1.7; }
-  .project-details h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.5rem; font-family: var(--mono); }
-  .detail-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
-  .detail-list li { font-size: 14px; color: var(--text-muted); display: flex; gap: 0.6rem; align-items: flex-start; }
-  .detail-list li::before { content: '→'; color: var(--accent-light); font-family: var(--mono); font-size: 12px; margin-top: 3px; flex-shrink: 0; }
-  .project-group { font-family: var(--mono); font-size: 11px; color: var(--text-muted); margin-top: 0.75rem; }
+  .project-card-featured { border-color: rgba(59,130,246,0.25); }
+  .project-card-top { display: flex; flex-direction: column; gap: 0.35rem; }
+  .project-year { font-family: var(--mono); font-size: 11px; color: var(--accent-light); background: rgba(37,99,235,0.12); border: 1px solid rgba(59,130,246,0.25); padding: 2px 10px; border-radius: 4px; align-self: flex-start; }
+  .project-card h3 { font-size: 1rem; font-weight: 600; margin-top: 0.4rem; }
+  .project-type { color: var(--accent-light); font-size: 12px; font-weight: 400; }
+  .project-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-top: 0.3rem; }
+  .project-section { display: flex; flex-direction: column; gap: 0.4rem; }
+  .project-section-title { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.09em; color: var(--text-muted); border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; margin-bottom: 0.1rem; }
+  .detail-list { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
+  .detail-list li { font-size: 12px; color: var(--text-muted); display: flex; gap: 0.5rem; align-items: flex-start; line-height: 1.4; }
+  .detail-list li::before { content: '→'; color: var(--accent-light); font-family: var(--mono); font-size: 11px; margin-top: 2px; flex-shrink: 0; }
+  .project-group { font-family: var(--mono); font-size: 11px; color: var(--text-muted); margin-top: 0.4rem; }
   .project-group span { color: var(--accent-light); }
 
   /* STAGES */
@@ -218,7 +223,8 @@
         <p class="skill-desc">Configuration et administration d'équipements réseau, routage, commutation et gestion des protocoles TCP/IP en environnement d'entreprise.</p>
         <div class="tags">
           <span class="tag">TCP/IP</span><span class="tag">VLAN</span><span class="tag">OSPF</span>
-          <span class="tag">Cisco IOS</span><span class="tag">DNS/DHCP</span><span class="tag">Wireshark</span>
+          <span class="tag">Routage</span><span class="tag">Cisco IOS</span><span class="tag">DNS/DHCP</span>
+          <span class="tag">Wireshark</span><span class="tag">Stormshield</span>
         </div>
       </div>
       <div class="skill-card">
@@ -226,23 +232,21 @@
         <p class="skill-desc">Administration de serveurs Windows et Linux, gestion des utilisateurs et des stratégies de groupe en environnement Active Directory.</p>
         <div class="tags">
           <span class="tag">Windows Server</span><span class="tag">Linux Debian</span>
-          <span class="tag">Active Directory</span><span class="tag">GPO</span><span class="tag">PowerShell</span><span class="tag">Bash</span>
+          <span class="tag">Active Directory</span><span class="tag">GPO</span>
         </div>
       </div>
       <div class="skill-card">
         <h3>Cybersécurité</h3>
-        <p class="skill-desc">Mise en place de dispositifs de sécurité, analyse de vulnérabilités, déploiement de honeypots et analyse forensique de systèmes compromis.</p>
+        <p class="skill-desc">Mise en place de dispositifs de sécurité réseau et application des réglementations en vigueur pour la protection des systèmes d'information.</p>
         <div class="tags">
-          <span class="tag">Pare-feu</span><span class="tag">VPN</span><span class="tag">Honeypot</span>
-          <span class="tag">Forensic</span><span class="tag">RGPD</span><span class="tag">PSSI</span><span class="tag">Audit</span>
+          <span class="tag">Pare-feu</span><span class="tag">RGPD</span>
         </div>
       </div>
       <div class="skill-card">
         <h3>Virtualisation</h3>
         <p class="skill-desc">Création et gestion d'environnements virtualisés pour des infrastructures de test et de production, simulation de topologies réseau complexes.</p>
         <div class="tags">
-          <span class="tag">VMware</span><span class="tag">VirtualBox</span>
-          <span class="tag">GNS3</span><span class="tag">VPS</span><span class="tag">Conteneurs</span>
+          <span class="tag">VirtualBox</span><span class="tag">XCP-ng</span>
         </div>
       </div>
       <div class="skill-card">
@@ -250,15 +254,28 @@
         <p class="skill-desc">Surveillance en temps réel des équipements réseau et serveurs, génération d'alertes, suivi des métriques système et gestion des onduleurs.</p>
         <div class="tags">
           <span class="tag">Zabbix</span><span class="tag">SNMP</span>
-          <span class="tag">Métriques Linux</span><span class="tag">Onduleurs</span><span class="tag">Alertes</span>
         </div>
       </div>
       <div class="skill-card">
         <h3>Gestion de parc</h3>
-        <p class="skill-desc">Inventaire, déploiement et maintenance du parc informatique, gestion des tickets utilisateurs et mise en place de solutions de déploiement automatisé.</p>
+        <p class="skill-desc">Inventaire et maintenance du parc informatique, gestion des tickets utilisateurs.</p>
         <div class="tags">
-          <span class="tag">GLPI</span><span class="tag">Support N1/N2</span>
-          <span class="tag">Déploiement</span><span class="tag">Inventaire</span><span class="tag">Ticketing</span>
+          <span class="tag">GLPI</span><span class="tag">Inventaire</span><span class="tag">Ticketing</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Outils collaboratifs</h3>
+        <p class="skill-desc">Utilisation des suites collaboratives et outils de modélisation pour la gestion de projets, la communication en équipe et la conception de diagrammes techniques.</p>
+        <div class="tags">
+          <span class="tag">Office 365</span><span class="tag">Teams</span><span class="tag">SharePoint</span>
+          <span class="tag">Visual Paradigm</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Déploiement</h3>
+        <p class="skill-desc">Déploiement automatisé de postes et de systèmes d'exploitation à grande échelle via des solutions de clonage et d'imagerie réseau.</p>
+        <div class="tags">
+          <span class="tag">FOG Project</span>
         </div>
       </div>
     </div>
@@ -269,79 +286,135 @@
     <div class="section-label">03 — Projets</div>
     <h2>Projets réalisés</h2>
 
-    <!-- Projet 1 : Learning Tree -->
-    <div class="project-card">
-      <div class="project-header">
-        <div>
+    <div class="projects-grid">
+
+      <!-- Projet 1 : Learning Tree -->
+      <div class="project-card">
+        <div class="project-card-top">
+          <span class="project-year">1re année · 2024</span>
           <h3>Learning Tree</h3>
-          <div class="project-type">1re année — Devis d'infrastructure réseau</div>
+          <div class="project-type">Devis infrastructure réseau</div>
+          <p class="project-desc">Réponse à un cahier des charges client par un devis réseau complet.</p>
         </div>
-        <span class="project-year">1re année · 2024</span>
+        <div class="project-section">
+          <div class="project-section-title">Ressources fournies</div>
+          <ul class="detail-list">
+            <li>Cahier des charges client</li>
+            <li>Catalogues fournisseurs</li>
+          </ul>
+        </div>
+        <div class="project-section">
+          <div class="project-section-title">Résultats attendus</div>
+          <ul class="detail-list">
+            <li>Devis chiffré et justifié</li>
+            <li>Schéma de topologie réseau</li>
+          </ul>
+        </div>
+        <div class="project-section">
+          <div class="project-section-title">Outils</div>
+          <div class="tags">
+            <span class="tag">Réseau</span><span class="tag">Devis</span><span class="tag">Visual Paradigm</span>
+          </div>
+        </div>
       </div>
-      <p class="project-desc">Réalisation d'un devis complet pour une infrastructure réseau incluant le choix et le dimensionnement des équipements. L'objectif était de répondre à un cahier des charges client en proposant une solution réseau adaptée, chiffrée et documentée.</p>
-      <div class="project-details">
-        <h4>Points clés</h4>
-        <ul class="detail-list">
-          <li>Analyse du besoin client et rédaction d'un cahier des charges</li>
-          <li>Sélection et dimensionnement des équipements réseau (switches, routeurs, pare-feu)</li>
-          <li>Élaboration du devis avec justification des choix techniques</li>
-          <li>Schéma de la topologie réseau proposée</li>
-        </ul>
-      </div>
-      <div class="tags" style="margin-top:1rem;">
-        <span class="tag">Réseau</span><span class="tag">Devis</span><span class="tag">Infrastructure</span><span class="tag">Équipements</span>
-      </div>
-    </div>
 
-    <!-- Projet 2 : BEG -->
-    <div class="project-card">
-      <div class="project-header">
-        <div>
+      <!-- Projet Dramal Tech -->
+      <div class="project-card">
+        <div class="project-card-top">
+          <span class="project-year">1re année · 2024</span>
+          <h3>Dramal Tech</h3>
+          <div class="project-type">SEO & recensement de site web</div>
+          <p class="project-desc">Audit et optimisation SEO d'un site existant, avec recensement complet des pages et analyse de la structure.</p>
+        </div>
+        <div class="project-section">
+          <div class="project-section-title">Ressources fournies</div>
+          <ul class="detail-list">
+            <li>Accès au site client Dramal Tech</li>
+            <li>Outils d'analyse SEO</li>
+          </ul>
+        </div>
+        <div class="project-section">
+          <div class="project-section-title">Résultats attendus</div>
+          <ul class="detail-list">
+            <li>Recensement complet des pages du site</li>
+            <li>Rapport d'audit SEO</li>
+            <li>Recommandations d'optimisation</li>
+          </ul>
+        </div>
+        <div class="project-section">
+          <div class="project-section-title">Outils</div>
+          <div class="tags">
+            <span class="tag">SEO</span><span class="tag">Audit web</span><span class="tag">Recensement</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projet 2 : BEG -->
+      <div class="project-card">
+        <div class="project-card-top">
+          <span class="project-year">1re année · 2024</span>
           <h3>Projet BEG</h3>
-          <div class="project-type">1re année — Environnement Windows Server</div>
+          <div class="project-type">Environnement Windows Server</div>
+          <p class="project-desc">Déploiement d'un domaine AD DS avec serveur de fichiers sous Windows Server.</p>
         </div>
-        <span class="project-year">1re année · 2024</span>
+        <div class="project-section">
+          <div class="project-section-title">Ressources fournies</div>
+          <ul class="detail-list">
+            <li>ISO Windows Server</li>
+            <li>VirtualBox</li>
+          </ul>
+        </div>
+        <div class="project-section">
+          <div class="project-section-title">Résultats attendus</div>
+          <ul class="detail-list">
+            <li>Contrôleur de domaine AD DS</li>
+            <li>GPO et gestion des utilisateurs</li>
+            <li>Serveur de fichiers avec droits</li>
+          </ul>
+        </div>
+        <div class="project-section">
+          <div class="project-section-title">Outils</div>
+          <div class="tags">
+            <span class="tag">Windows Server</span><span class="tag">AD DS</span><span class="tag">GPO</span>
+          </div>
+        </div>
       </div>
-      <p class="project-desc">Déploiement et configuration d'un environnement Windows Server complet avec mise en place des services Active Directory Domain Services (AD DS) et d'un serveur de fichiers. Projet réalisé en 1re année permettant de maîtriser l'administration système Windows en entreprise.</p>
-      <div class="project-details">
-        <h4>Points clés</h4>
-        <ul class="detail-list">
-          <li>Installation et configuration d'un contrôleur de domaine Active Directory (AD DS)</li>
-          <li>Gestion des utilisateurs, groupes et unités organisationnelles</li>
-          <li>Mise en place de stratégies de groupe (GPO) pour la sécurité et la configuration des postes</li>
-          <li>Configuration d'un serveur de fichiers avec gestion des droits et des partages réseau</li>
-        </ul>
-      </div>
-      <div class="tags" style="margin-top:1rem;">
-        <span class="tag">Windows Server</span><span class="tag">AD DS</span><span class="tag">GPO</span><span class="tag">Serveur de fichiers</span>
-      </div>
-    </div>
 
-    <!-- Projet 3 : IUTO -->
-    <div class="project-card">
-      <div class="project-header">
-        <div>
+      <!-- Projet 3 : IUTO -->
+      <div class="project-card project-card-featured">
+        <div class="project-card-top">
+          <span class="project-year">2e année · 2026</span>
           <h3>Projet IUTO</h3>
-          <div class="project-type">2e année — Infrastructure complète pour IUT</div>
+          <div class="project-type">Infrastructure complète IUT</div>
+          <p class="project-desc">Infrastructure complète pour un IUT en groupe de 3.</p>
+          <div class="project-group">Groupe de <span>3 étudiants</span></div>
         </div>
-        <span class="project-year">2e année · 2026</span>
+        <div class="project-section">
+          <div class="project-section-title">Ressources fournies</div>
+          <ul class="detail-list">
+            <li>ISO : WS 2022, Debian 13, Win 11</li>
+            <li>Hyperviseur XCP-ng + XOA</li>
+          </ul>
+        </div>
+        <div class="project-section">
+          <div class="project-section-title">Résultats attendus</div>
+          <ul class="detail-list">
+            <li>AD DS, fichiers, impression</li>
+            <li>GLPI (parc) + FOG (déploiement)</li>
+            <li>Zabbix + Grafana Loki</li>
+            <li>UrBackup + Wazuh</li>
+          </ul>
+        </div>
+        <div class="project-section">
+          <div class="project-section-title">Logiciels</div>
+          <div class="tags">
+            <span class="tag">XCP-ng</span><span class="tag">AD DS</span><span class="tag">GLPI</span>
+            <span class="tag">Zabbix</span><span class="tag">Grafana Loki</span>
+            <span class="tag">UrBackup</span><span class="tag">Wazuh</span><span class="tag">FOG</span>
+          </div>
+        </div>
       </div>
-      <p class="project-desc">Projet de grande envergure réalisé en groupe de 3, consistant à concevoir et déployer une infrastructure réseau et système complète pour un IUT. Ce projet de fin de formation a mobilisé l'ensemble des compétences acquises durant les deux années de BTS SIO SISR.</p>
-      <div class="project-details">
-        <h4>Points clés</h4>
-        <ul class="detail-list">
-          <li>Conception de l'architecture réseau complète (VLAN, routage inter-VLAN, redondance)</li>
-          <li>Déploiement des services d'infrastructure : AD DS, DNS, DHCP, serveur de fichiers</li>
-          <li>Mise en place de la sécurité réseau : pare-feu, VPN, politique de sécurité</li>
-          <li>Supervision de l'infrastructure avec monitoring des équipements et alertes</li>
-          <li>Documentation technique complète et présentation au jury</li>
-        </ul>
-      </div>
-      <div class="project-group">Projet réalisé en groupe de <span>3 étudiants</span></div>
-      <div class="tags" style="margin-top:1rem;">
-        <span class="tag">Infrastructure</span><span class="tag">Réseau</span><span class="tag">Windows Server</span>
-        <span class="tag">Sécurité</span><span class="tag">Supervision</span><span class="tag">Travail en équipe</span>
-      </div>
+
     </div>
   </div>
 
@@ -380,13 +453,16 @@
         <span class="stage-num">Stage 2 · 2026</span>
       </div>
       <div class="stage-info">
-        📍 Niort
+        📍 223 Rue Jean Jaurès, 79000 Niort<br>
+        📞 05 49 79 34 44
       </div>
       <div class="stage-missions">
         <h4>Missions réalisées</h4>
         <ul class="mission-list">
           <li>Mise en place d'un nouveau serveur de déploiement pour l'infrastructure interne</li>
           <li>Supervision et monitoring d'onduleurs (UPS) via protocoles SNMP</li>
+          <li>Déploiement d'une IA locale avec AnythingLLM pour usage interne</li>
+          <li>Support utilisateurs N1 et N2 : résolution d'incidents et assistance technique</li>
         </ul>
       </div>
     </div>
@@ -424,17 +500,6 @@
         <a href="https://www.linkedin.com/in/wattin-nolan" target="_blank" rel="noopener">Wattin Nolan — LinkedIn</a>
       </div>
     </div>
-
-    <hr class="contact-divider">
-
-    <h3 style="margin-bottom:1rem; font-size:1rem; font-weight:500; color:var(--text-muted);">Ou envoyez-moi un message</h3>
-    <form class="contact-form" onsubmit="handleSubmit(event)">
-      <input type="text" placeholder="Votre nom" required>
-      <input type="email" placeholder="Votre e-mail" required>
-      <input type="text" placeholder="Sujet">
-      <textarea placeholder="Votre message..." required></textarea>
-      <button type="submit">Envoyer le message</button>
-    </form>
   </div>
 
 </main>
