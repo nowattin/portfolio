@@ -126,10 +126,29 @@
   .mission-list li::before { content: '→'; color: var(--accent-light); font-family: var(--mono); font-size: 12px; margin-top: 3px; flex-shrink: 0; }
 
   /* VEILLE */
-  .veille-placeholder { background: var(--card-bg); border: 1px dashed rgba(59,130,246,0.3); border-radius: 10px; padding: 3rem 2rem; text-align: center; color: var(--text-muted); }
-  .veille-placeholder .veille-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-  .veille-placeholder p { font-size: 14px; max-width: 380px; margin: 0 auto; line-height: 1.7; }
-  .veille-placeholder .veille-label { font-family: var(--mono); font-size: 11px; color: var(--accent-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .veille-section-title { font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 1rem; }
+  .sources-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .source-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; display: flex; gap: 0.9rem; align-items: flex-start; text-decoration: none; transition: border-color .2s; }
+  .source-card:hover { border-color: rgba(59,130,246,0.4); }
+  .source-logo { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+  .source-name { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
+  .source-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+  .veille-table-wrap { overflow-x: auto; border-radius: 8px; border: 1px solid var(--border); }
+  .veille-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .veille-table thead { background: rgba(255,255,255,0.04); }
+  .veille-table th { text-align: left; padding: 0.7rem 1rem; font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); border-bottom: 1px solid var(--border); white-space: nowrap; }
+  .veille-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); color: var(--text-muted); vertical-align: top; line-height: 1.5; }
+  .veille-table tr:last-child td { border-bottom: none; }
+  .veille-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .cve-id { font-family: var(--mono); font-size: 12px; color: var(--accent-light); white-space: nowrap; }
+  .cvss { font-family: var(--mono); font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 4px; }
+  .cvss-critical { background: rgba(220,38,38,0.15); color: #f87171; border: 1px solid rgba(220,38,38,0.3); }
+  .cvss-high { background: rgba(234,88,12,0.15); color: #fb923c; border: 1px solid rgba(234,88,12,0.3); }
+  .cvss-medium { background: rgba(161,98,7,0.15); color: #fbbf24; border: 1px solid rgba(161,98,7,0.3); }
+  .cvss-low { background: rgba(22,163,74,0.12); color: #4ade80; border: 1px solid rgba(22,163,74,0.25); }
+  .tag-rce { background: rgba(220,38,38,0.12); color: #f87171; border-color: rgba(220,38,38,0.25); }
+  .tag-dos { background: rgba(234,88,12,0.12); color: #fb923c; border-color: rgba(234,88,12,0.25); }
+  .tag-lpe { background: rgba(161,98,7,0.15); color: #fbbf24; border-color: rgba(161,98,7,0.3); }
 
   /* CONTACT */
   .contact-info { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2.5rem; }
@@ -471,12 +490,104 @@
   <!-- VEILLE INFORMATIQUE -->
   <div class="page" id="page-veille">
     <div class="section-label">05 — Veille informatique</div>
-    <h2>Veille technologique</h2>
-    <p class="about-intro">Cette section présente ma veille informatique, permettant de rester à jour sur les évolutions technologiques du domaine des réseaux, systèmes et cybersécurité.</p>
-    <div class="veille-placeholder">
-      <div class="veille-icon">📡</div>
-      <div class="veille-label">En cours de construction</div>
-      <p>Le sujet de veille informatique est en cours de définition. Cette section sera complétée prochainement avec les sources, thématiques et analyses retenues.</p>
+    <h2>Veille en cybersécurité</h2>
+    <p class="about-intro">Dans le cadre de ma formation BTS SIO SISR, j'effectue une veille régulière sur les vulnérabilités et menaces informatiques afin de rester informé des risques pesant sur les infrastructures systèmes et réseaux.</p>
+
+    <!-- Sources -->
+    <h3 class="veille-section-title">Sources officielles utilisées</h3>
+    <div class="sources-grid">
+      <a class="source-card" href="https://www.cert.ssi.gouv.fr" target="_blank" rel="noopener">
+        <div class="source-logo">🇫🇷</div>
+        <div>
+          <div class="source-name">CERT-FR</div>
+          <div class="source-desc">Bulletins d'alerte et avis de sécurité publiés par l'ANSSI pour les systèmes d'information français.</div>
+        </div>
+      </a>
+      <a class="source-card" href="https://www.ssi.gouv.fr" target="_blank" rel="noopener">
+        <div class="source-logo">🛡️</div>
+        <div>
+          <div class="source-name">ANSSI</div>
+          <div class="source-desc">Agence Nationale de la Sécurité des Systèmes d'Information — recommandations et guides officiels français.</div>
+        </div>
+      </a>
+      <a class="source-card" href="https://cve.mitre.org" target="_blank" rel="noopener">
+        <div class="source-logo">🗄️</div>
+        <div>
+          <div class="source-name">CVE Mitre</div>
+          <div class="source-desc">Base de données internationale des vulnérabilités connues et exposées, référence mondiale en cybersécurité.</div>
+        </div>
+      </a>
+      <a class="source-card" href="https://nvd.nist.gov" target="_blank" rel="noopener">
+        <div class="source-logo">🇺🇸</div>
+        <div>
+          <div class="source-name">NVD — NIST</div>
+          <div class="source-desc">National Vulnerability Database : scores CVSS, détails techniques et correctifs pour chaque CVE répertoriée.</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Tableau de veille -->
+    <h3 class="veille-section-title" style="margin-top:2.5rem;">Failles récentes surveillées <span style="font-family:var(--mono);font-size:11px;color:var(--text-muted);font-weight:400;">— mis à jour en temps réel via NVD API</span></h3>
+
+    <div style="display:flex;gap:0.75rem;margin-bottom:1rem;align-items:center;flex-wrap:wrap;">
+      <select id="cvss-filter" style="background:var(--card-bg);border:1px solid var(--border);color:var(--text);font-family:var(--mono);font-size:12px;padding:0.4rem 0.7rem;border-radius:6px;outline:none;">
+        <option value="0">Tous les scores</option>
+        <option value="9">Critique (≥ 9.0)</option>
+        <option value="7" selected>Élevé (≥ 7.0)</option>
+        <option value="4">Moyen (≥ 4.0)</option>
+      </select>
+      <select id="count-filter" style="background:var(--card-bg);border:1px solid var(--border);color:var(--text);font-family:var(--mono);font-size:12px;padding:0.4rem 0.7rem;border-radius:6px;outline:none;">
+        <option value="10">10 résultats</option>
+        <option value="20" selected>20 résultats</option>
+        <option value="30">30 résultats</option>
+      </select>
+      <button onclick="loadCVEs()" style="background:var(--accent);color:#fff;border:none;border-radius:6px;font-family:var(--font);font-size:12px;padding:0.4rem 1rem;cursor:pointer;">🔄 Actualiser</button>
+      <span id="cve-last-update" style="font-family:var(--mono);font-size:11px;color:var(--text-muted);margin-left:auto;"></span>
+    </div>
+
+    <div class="veille-table-wrap">
+      <table class="veille-table">
+        <thead>
+          <tr>
+            <th>CVE</th>
+            <th>Produit</th>
+            <th>Score CVSS</th>
+            <th>Sévérité</th>
+            <th>Date</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody id="cve-tbody">
+          <tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--text-muted);font-family:var(--mono);font-size:13px;">⏳ Chargement des failles en cours…</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="cve-error" style="display:none;background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.2);border-radius:8px;padding:1rem 1.2rem;color:#f87171;font-size:13px;margin-top:0.75rem;"></div>
+
+    <!-- Méthode -->
+    <h3 class="veille-section-title" style="margin-top:2.5rem;">Méthode de veille</h3>
+    <div class="sources-grid" style="grid-template-columns:1fr 1fr 1fr;">
+      <div class="source-card" style="pointer-events:none;">
+        <div class="source-logo">📅</div>
+        <div>
+          <div class="source-name">Fréquence</div>
+          <div class="source-desc">Consultation hebdomadaire des bulletins CERT-FR et alertes NVD/CVE.</div>
+        </div>
+      </div>
+      <div class="source-card" style="pointer-events:none;">
+        <div class="source-logo">🎯</div>
+        <div>
+          <div class="source-name">Périmètre</div>
+          <div class="source-desc">Focus sur les produits utilisés en entreprise : Windows Server, pare-feux, hyperviseurs, VPN.</div>
+        </div>
+      </div>
+      <div class="source-card" style="pointer-events:none;">
+        <div class="source-logo">📋</div>
+        <div>
+          <div class="source-name">Critères</div>
+          <div class="source-desc">Priorité aux CVE avec score CVSS ≥ 7.0 et exploitation active signalée.</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -515,6 +626,7 @@
     document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
     if (el) el.classList.add('active');
     window.scrollTo(0, 0);
+    if (id === 'veille' && !window.cveLoaded) { loadCVEs(); window.cveLoaded = true; }
   }
 
   function handleSubmit(e) {
@@ -522,11 +634,104 @@
     const btn = e.target.querySelector('button');
     btn.textContent = 'Message envoyé !';
     btn.style.background = '#16a34a';
-    setTimeout(() => {
-      btn.textContent = 'Envoyer le message';
-      btn.style.background = '';
-      e.target.reset();
-    }, 3000);
+    setTimeout(() => { btn.textContent = 'Envoyer le message'; btn.style.background = ''; e.target.reset(); }, 3000);
+  }
+
+  function cvssClass(score) {
+    if (score >= 9) return 'cvss-critical';
+    if (score >= 7) return 'cvss-high';
+    if (score >= 4) return 'cvss-medium';
+    return 'cvss-low';
+  }
+
+  function severityLabel(score) {
+    if (score >= 9) return '<span style="color:#f87171;font-size:12px;">● Critique</span>';
+    if (score >= 7) return '<span style="color:#fb923c;font-size:12px;">● Élevé</span>';
+    if (score >= 4) return '<span style="color:#fbbf24;font-size:12px;">● Moyen</span>';
+    return '<span style="color:#4ade80;font-size:12px;">● Faible</span>';
+  }
+
+  function extractProduct(cve) {
+    try {
+      const configs = cve.configurations;
+      if (configs && configs.length > 0) {
+        const node = configs[0].nodes?.[0];
+        const cpe = node?.cpeMatch?.[0]?.criteria || '';
+        const parts = cpe.split(':');
+        if (parts.length >= 5) return (parts[3] + ' ' + parts[4]).replace(/_/g,' ');
+      }
+    } catch(e) {}
+    const desc = cve.descriptions?.find(d => d.lang === 'en')?.value || '';
+    const m = desc.match(/^([^.]{5,60}?)\s(?:is|has|contains|allows|could)/i);
+    if (m) return m[1].substring(0, 40);
+    return 'N/A';
+  }
+
+  function formatDate(str) {
+    if (!str) return '—';
+    return str.substring(0, 10);
+  }
+
+  async function loadCVEs() {
+    const tbody = document.getElementById('cve-tbody');
+    const errDiv = document.getElementById('cve-error');
+    const minScore = parseFloat(document.getElementById('cvss-filter').value) || 0;
+    const count = parseInt(document.getElementById('count-filter').value) || 20;
+
+    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--text-muted);font-family:var(--mono);font-size:13px;">⏳ Chargement depuis NVD…</td></tr>';
+    errDiv.style.display = 'none';
+
+    try {
+      const url = `https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=${count}&startIndex=0&cvssV3Severity=${minScore >= 9 ? 'CRITICAL' : minScore >= 7 ? 'HIGH' : minScore >= 4 ? 'MEDIUM' : 'LOW'}&pubStartDate=${getDateMinus(90)}&pubEndDate=${getToday()}`;
+
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      const vulns = data.vulnerabilities || [];
+
+      if (vulns.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--text-muted);">Aucune CVE trouvée pour ces critères.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = vulns.map(v => {
+        const cve = v.cve;
+        const id = cve.id;
+        const desc = cve.descriptions?.find(d => d.lang === 'en')?.value || 'No description.';
+        const shortDesc = desc.length > 120 ? desc.substring(0, 120) + '…' : desc;
+        const metrics = cve.metrics?.cvssMetricV31?.[0] || cve.metrics?.cvssMetricV30?.[0] || cve.metrics?.cvssMetricV2?.[0];
+        const score = metrics?.cvssData?.baseScore ?? '—';
+        const product = extractProduct(cve);
+        const date = formatDate(cve.published);
+        const nvdLink = `https://nvd.nist.gov/vuln/detail/${id}`;
+        const scoreNum = parseFloat(score);
+        return `<tr>
+          <td><a href="${nvdLink}" target="_blank" rel="noopener" class="cve-id" style="text-decoration:none;">${id}</a></td>
+          <td style="font-size:12px;max-width:120px;">${product}</td>
+          <td><span class="cvss ${isNaN(scoreNum) ? '' : cvssClass(scoreNum)}">${score}</span></td>
+          <td>${isNaN(scoreNum) ? '—' : severityLabel(scoreNum)}</td>
+          <td style="font-family:var(--mono);font-size:11px;white-space:nowrap;">${date}</td>
+          <td style="font-size:12px;max-width:280px;line-height:1.5;">${shortDesc}</td>
+        </tr>`;
+      }).join('');
+
+      document.getElementById('cve-last-update').textContent = 'Mis à jour : ' + new Date().toLocaleString('fr-FR');
+
+    } catch(e) {
+      tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--text-muted);">Impossible de charger les données.</td></tr>';
+      errDiv.style.display = 'block';
+      errDiv.textContent = '⚠️ Erreur API NVD : ' + e.message + '. Les données NVD peuvent être temporairement indisponibles. Réessayez dans quelques instants.';
+    }
+  }
+
+  function getToday() {
+    return new Date().toISOString().split('.')[0] + '.000';
+  }
+
+  function getDateMinus(days) {
+    const d = new Date();
+    d.setDate(d.getDate() - days);
+    return d.toISOString().split('.')[0] + '.000';
   }
 </script>
 
